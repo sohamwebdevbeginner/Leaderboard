@@ -17,7 +17,8 @@ const Leaderboard = () => {
       const structuredSohamTeams = rows.map((val) => ({
         name: val[0],
         score: Number(val[1] || 0),
-      }));
+      }))
+          .sort((a, b) => b.score - a.score);
       setSohamTeams(structuredSohamTeams);
     } catch (e) {
       console.error("Error occurred while fetching the Soham leaderboard.", e);
